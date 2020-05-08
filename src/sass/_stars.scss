@@ -1,0 +1,17 @@
+.stars_container {
+    width: 100%;
+    max-width: 1060px;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.star {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-image: url("../../assets/img/star.svg");
+    &-win {
+        background-image: url("../../assets/img/star-win.svg");
+    }
+}

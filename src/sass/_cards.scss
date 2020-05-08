@@ -1,0 +1,142 @@
+.cards_container {
+    display: flex;
+    width: 100%;
+    max-width: 1060px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    perspective: 5000px;
+    &-inactive {
+        display: none;
+    }
+    >* {
+        background: linear-gradient(#009ba4 0%, #00b788 40%, #ffffff 40%);
+    }
+    &-colored {
+        .card {
+            background: linear-gradient(#F97362 0%, #F4B467 40%, #ffffff 40%);
+            .card--image {
+                background-position: -37.5px;
+            }
+        }
+
+    }
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 280px;
+    border-radius: 5px;
+    box-shadow: 0px 0 8px -2px #000000;
+    margin: 20px 25px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s;
+    &:hover {
+    box-shadow: 0px 0 15px -2px #000000;
+    }
+    &-inactive {
+        filter: brightness(70%);
+    }
+}
+.card--face {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 30px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    backface-visibility: hidden;
+    &-back {
+        transform: rotateY(180deg);
+    }
+}
+
+.card--image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 10px solid #ffffff;
+    background-size: cover;
+    background-position: 25%;
+}
+
+.card--title, .card--translation {
+    font-size: 24px;
+}
+
+.card--reverse {
+    display: none;
+}
+
+
+
+.cards_container-active {
+    &.cards_container-colored {
+        .card--image {
+            height: 100%;
+        }
+        .card--body {
+            display: none;
+        }
+    }
+    .card {
+        height: 250px;
+    }
+    .card--face {
+        padding: 0;
+    }
+    .card--image{
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        background-position: 0 0;
+        height: 200px;
+
+    }
+    .card--body {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: #ffffff;
+    }
+    .card--title {
+        margin-left: 100px;
+    }
+    .card--reverse {
+        display: block;
+        background-image: url('../../assets/img/reverse.png');
+        filter: grayscale(1);
+        width: 37px;
+        height: 30px;
+        background-size: cover;
+        cursor: pointer;
+        &:hover {
+            filter: unset;
+        }
+    }
+}
+
+.card-reverse {
+    transform: rotateY(180deg);
+    // animation-name: "reverse";
+    // animation-duration: 3s;
+}
+.card-reverse-back {
+    animation-name: "reverse";
+    animation-direction: reverse;
+    animation-duration: 3s;
+}
+@keyframes reverse {
+    from {
+        transform: rotateY(0);
+    }
+    to {
+        transform: rotateY(180deg);
+    }
+}

@@ -1,0 +1,87 @@
+.navigation {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    height: 100%;
+    box-sizing:border-box;
+    top: 0;
+    left: -30%;
+    background: linear-gradient(#009ba4 0,  #00b788 100%);
+    padding: 70px 0 20px;
+    animation-duration: 0.3s;
+    z-index: 1;
+    transition: left 0.3s, background 0.3s;
+    &--list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 0;
+        * {
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 22px;
+        color: #ffffff;
+        list-style: none;
+        &:hover {
+            color: #bbbbbb;
+            cursor: pointer;
+        }
+        }
+        .selected_item {
+            text-decoration: underline;
+        }
+    }
+    &-active {
+        left: 0;
+    }
+    &-colored {
+        background: linear-gradient(#F97362 0%, #F4B467 100%);
+    }
+    @include media-mobile {
+        left: -50%;
+        width: 50%;
+        &-active {
+            left: 0;
+        }
+    }
+
+}
+
+.navigation-display {
+    display: flex;
+    animation-name: "navigation-display";
+}
+
+.navigation-hide {
+    animation-name: "navigation-display";
+    animation-direction: reverse;
+}
+
+@keyframes navigation-display {
+    from {
+        left: -30%;
+    }
+    to {
+        left: 0;
+    }
+}
+
+.color-switch {
+    animation-name: "color-switch";
+}
+.color-switch-back{
+    animation-name: "color-switch";
+    animation-direction: reverse;
+}
+
+@keyframes color-switch {
+    from {
+        background: linear-gradient(#009ba4 0,  #00b788 100%);
+    }
+    to {
+        background: linear-gradient(#F97362 0%, #F4B467 100%);
+    }
+}
+.navigation-colored {
+    background: linear-gradient(#F97362 0%, #F4B467 100%);
+}

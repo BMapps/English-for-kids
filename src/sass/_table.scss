@@ -1,0 +1,40 @@
+.statistics_page {
+    &-inactive {
+        display: none;
+    }
+}
+.statistics_table_container {
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.statistics_table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.cell {
+    text-align: center;
+    border: 1px solid black;
+}
+
+.buttons_container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.button {
+    width: 150px;
+    // margin: 20px auto 0;
+    display: block;
+}
+.col-desc {
+    &::after {
+        content:"\000A\001F";
+    }
+}
+.col-asc {
+    &::after {
+        content:"\000A\001E";
+    }
+}
